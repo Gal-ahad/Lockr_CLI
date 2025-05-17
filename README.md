@@ -22,19 +22,22 @@ A simple password generator that lives in your terminal.
 #### Alternatively
 
 Download the latest [release](https://github.com/Gal-ahad/Lockr/releases). The executable should be placed in a folder that's included in `PATH` (see [this guide](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) on how to do that)
+
 ## Documentation
 
 ```
-usage: lockr [-h] [--remove-special] length
+usage: lockr [-h] [--remove-special] [--debug] [--logfile LOGFILE] length
 
-Generate a secure password
+LOCKR - Rapid password generator
 
 positional arguments:
-  length            How long should your password be, from 12 to 20
+  length             Password length (12–20)
 
 options:
-  -h, --help        show this help message and exit
-  --remove-special  Remove special characters (off by default)
+  -h, --help         show this help message and exit
+  --remove-special   Remove special characters
+  --debug            Enable debug logging
+  --logfile LOGFILE  Custom log file path
 ```
 
 ## Roadmap
