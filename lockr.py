@@ -37,10 +37,17 @@ def setup_logging(logfile=None, debug=False):
 def main():
     parser = argparse.ArgumentParser(description="LOCKR - Rapid password generator")
 
-    parser.add_argument("length", type=int, help="Password length (12–20)")
-    parser.add_argument("--remove-special", action="store_true", help="Remove special characters")
-    parser.add_argument("--debug", action="store_true", help="Enable debug logging")
-    parser.add_argument("--logfile", type=str, help="Custom log file path")
+    arguments = [
+    {"name": "length", "type": int, "help": "Password Length (12-20)"},
+    {"name": "--remove-special", "action": "store_true", "help": "Remove special characters"},
+    {"name": "--debug", "action": "store_true", "help": "Enable debug logging"},
+    {"name": "--logfile", "type": str, "help": "Generate a custom logfile"},
+]
+
+    for arg in arguments:
+        name = arg["name"]
+        kwargs = {k: v for k, v in arg.items() if k != "name"}
+        parser.add_argument(name, **kwargs)
 
     args = parser.parse_args()
 
